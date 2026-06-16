@@ -1,6 +1,9 @@
 import contextlib
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
+
+from template_core import templates
 
 
 @contextlib.asynccontextmanager
@@ -18,3 +21,10 @@ app = FastAPI(
     redoc_url=None,
     openapi_url=None,
 )
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+
+@app.get("/")
+async def index(request: Request):
+    return templates.TemplateResponse(request, "index.html")

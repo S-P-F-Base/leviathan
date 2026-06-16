@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Kit - Dark Panel</title>
+    <link rel="stylesheet" href="{{ 'css/style.css' | ver }}" />
+</head>
+
+<body>
+    <div class="page">
+        <header class="page-header">
+            <h1>🎛 UI Kit - Dark Panel</h1>
+            <p class="subtitle">Набор общих блоков: карточки, бейджи, статусные строки, формы, чекбоксы и радиокнопки
+            </p>
+        </header>
+
+        <!-- Типографика -->
+        <h2>📝 Типографика</h2>
+        <p>Обычный текст. <span class="text-muted">Приглушённый текст</span>. Статусы:
+            <span class="text-ok">OK</span> ·
+            <span class="text-bad">BAD</span> ·
+            <span class="text-warn">WARN</span>
+        </p>
+
+        <!-- Карточки -->
+        <h2>🃏 Карточки</h2>
+        <div class="card">
+            <div class="card__title">Стандартная карточка</div>
+            <div class="card__subtitle">с оранжевой полосой</div>
+            <div class="card__body">
+                Это тело карточки. Можно вставлять любой контент: текст, списки, код.
+            </div>
+        </div>
+        <div class="card card--ok">
+            <div class="card__title">Успешно</div>
+            <div class="card__body">Зелёная полоса - всё работает.</div>
+        </div>
+        <div class="card card--bad">
+            <div class="card__title">Ошибка</div>
+            <div class="card__body">Красная полоса - что-то сломалось.</div>
+        </div>
+        <div class="card card--warn">
+            <div class="card__title">Предупреждение</div>
+            <div class="card__body">Оранжевая полоса - внимание.</div>
+        </div>
+        <div class="card card--muted">
+            <div class="card__title">Неактивно</div>
+            <div class="card__body">Серая полоса - отключено.</div>
+        </div>
+
+        <!-- Бейджи -->
+        <h2>🏷 Бейджи</h2>
+        <p>
+            <span class="badge">/api/v1</span>
+            <span class="badge badge--muted">internal</span>
+            <span class="badge badge--ok">200 OK</span>
+            <span class="badge badge--bad">500 ERR</span>
+            <span class="badge badge--warn">TIMEOUT</span>
+        </p>
+
+        <!-- Статусные строки -->
+        <h2>📋 Статусные строки</h2>
+        <div class="status-item status-item--ok">
+            <div class="status-item__main">
+                <div class="status-item__top">
+                    <span class="status-item__name">auth-service</span>
+                    <span class="badge">/auth</span>
+                </div>
+                <div class="status-item__reason">Все эндпоинты отвечают</div>
+            </div>
+            <div class="status-item__status text-ok">OK</div>
+        </div>
+
+        <div class="status-item status-item--bad">
+            <div class="status-item__main">
+                <div class="status-item__top">
+                    <span class="status-item__name">payment-gateway</span>
+                    <span class="badge badge--muted">internal</span>
+                </div>
+                <div class="status-item__reason">Таймаут соединения: 10.0.1.5:8080</div>
+            </div>
+            <div class="status-item__status text-bad">BAD</div>
+        </div>
+
+        <div class="status-item status-item--warn">
+            <div class="status-item__main">
+                <div class="status-item__top">
+                    <span class="status-item__name">redis-cache</span>
+                    <span class="badge">tcp://cache:6379</span>
+                </div>
+                <div class="status-item__reason">Высокая загрузка (92%)</div>
+            </div>
+            <div class="status-item__status text-warn">WARN</div>
+        </div>
+
+        <div class="status-item status-item--muted">
+            <div class="status-item__main">
+                <div class="status-item__top">
+                    <span class="status-item__name">backup-worker</span>
+                    <span class="badge badge--muted">off</span>
+                </div>
+                <div class="status-item__reason">Отключён вручную</div>
+            </div>
+            <div class="status-item__status text-muted">OFF</div>
+        </div>
+
+        <!-- Формы и кнопки -->
+        <h2>⚙ Формы и кнопки</h2>
+        <div>
+            <label for="demo-input" class="text-muted" style="font-size:0.85rem;">Текстовое поле</label>
+            <input id="demo-input" type="text" placeholder="Введите значение" value="example" class="mb-2">
+
+            <label for="demo-select" class="text-muted" style="font-size:0.85rem;">Выпадающий список</label>
+            <select id="demo-select" class="mb-2">
+                <option>Продакшен</option>
+                <option>Стейджинг</option>
+                <option>Разработка</option>
+            </select>
+
+            <label for="demo-textarea" class="text-muted" style="font-size:0.85rem;">Текстовая область</label>
+            <textarea id="demo-textarea" rows="3" placeholder="Комментарий..." class="mb-2"></textarea>
+
+            <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+                <button>Основная кнопка</button>
+                <button class="btn--secondary">Вторичная</button>
+            </div>
+        </div>
+
+        <!-- Чекбоксы и радиокнопки -->
+        <h2>☑️ Чекбоксы и радиокнопки</h2>
+
+        <div style="margin-bottom: 1.5rem;">
+            <p class="text-muted" style="font-size:0.85rem; margin-bottom:0.5rem;">Чекбоксы</p>
+            <div class="checkbox-group">
+                <label class="custom-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkmark"></span>
+                    <span>Включить мониторинг</span>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    <span>Автоматический перезапуск</span>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" disabled>
+                    <span class="checkmark"></span>
+                    <span>Расширенные логи (недоступно)</span>
+                </label>
+                <label class="custom-checkbox">
+                    <input type="checkbox" checked disabled>
+                    <span class="checkmark"></span>
+                    <span>Базовая защита (всегда включена)</span>
+                </label>
+            </div>
+        </div>
+
+        <div>
+            <p class="text-muted" style="font-size:0.85rem; margin-bottom:0.5rem;">Радиокнопки</p>
+            <div class="radio-group">
+                <label class="custom-radio">
+                    <input type="radio" name="env" value="prod" checked>
+                    <span class="radiomark"></span>
+                    <span>Продакшен</span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="env" value="stage">
+                    <span class="radiomark"></span>
+                    <span>Стейджинг</span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="env" value="dev">
+                    <span class="radiomark"></span>
+                    <span>Разработка</span>
+                </label>
+                <label class="custom-radio">
+                    <input type="radio" name="env" value="off" disabled>
+                    <span class="radiomark"></span>
+                    <span>Отключено (недоступно)</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Полноценный пример: мониторинг -->
+        <h2>🖥 Пример: Мониторинг сервисов</h2>
+        <div style="display:flex; flex-direction:column; gap:0.5rem;">
+            <div class="status-item status-item--ok">
+                <div class="status-item__main">
+                    <div class="status-item__top">
+                        <span class="status-item__name">nginx</span>
+                        <span class="badge">:80</span>
+                    </div>
+                    <div class="status-item__reason">Принимает соединения</div>
+                </div>
+                <div class="status-item__status text-ok">OK</div>
+            </div>
+            <div class="status-item status-item--bad">
+                <div class="status-item__main">
+                    <div class="status-item__top">
+                        <span class="status-item__name">postgres</span>
+                        <span class="badge badge--muted">5432</span>
+                    </div>
+                    <div class="status-item__reason">Connection refused</div>
+                </div>
+                <div class="status-item__status text-bad">BAD</div>
+            </div>
+            <div class="status-item status-item--warn">
+                <div class="status-item__main">
+                    <div class="status-item__top">
+                        <span class="status-item__name">elasticsearch</span>
+                        <span class="badge">:9200</span>
+                    </div>
+                    <div class="status-item__reason">Кластер в состоянии yellow</div>
+                </div>
+                <div class="status-item__status text-warn">WARN</div>
+            </div>
+        </div>
+
+        <!-- Пример: страница ошибки -->
+        <h2>🚫 Пример: Страница ошибки</h2>
+        <div class="card card--bad" style="max-width:640px;">
+            <div class="card__title">Ошибка 502 - Bad Gateway</div>
+            <div class="card__subtitle">Код: GATEWAY_TIMEOUT</div>
+            <div class="card__body">
+                Сервис <strong>api-backend</strong> не отвечает. Попробуйте позже или обратитесь к администратору.
+            </div>
+            <div class="code-block">
+                upstream timed out (110: Connection timed out) while connecting to 10.0.2.15:3000
+            </div>
+            <div style="margin-top:0.7rem; font-size:0.75rem; color:var(--muted);">
+                Сервис: api-backend · Узел: node-4
+            </div>
+        </div>
+
+        <!-- Виджет: алерт -->
+        <h2>📢 Виджет: информационное сообщение</h2>
+        <div class="card card--warn" style="display:flex; align-items:flex-start; gap:0.8rem;">
+            <span style="font-size:1.5rem;">⚠️</span>
+            <div>
+                <div class="card__title" style="margin-bottom:0.3rem;">Плановые работы</div>
+                <div style="font-size:0.9rem;">30.06.2026 с 02:00 до 04:00 (UTC) возможны перебои в работе
+                    payment-service.</div>
+            </div>
+        </div>
+
+        <p class="text-muted" style="margin-top:3rem; text-align:center; font-size:0.8rem;">
+            UI Kit с общими блоками, чекбоксами и радиокнопками.
+        </p>
+    </div>
+</body>
+
+</html>

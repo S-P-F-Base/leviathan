@@ -1,0 +1,16 @@
+from pathlib import Path
+
+from fastapi.templating import Jinja2Templates
+
+templates = Jinja2Templates(directory="templates")
+BASE_DIR = Path(__file__).resolve().parent
+STATIC_DIR = BASE_DIR / "static"
+
+
+def static_with_version(file: str) -> str:
+    static_path = STATIC_DIR / file
+    v = int(static_path.stat().st_mtime) if static_path.exists() else 0
+    return f"/static/{file}?v={v}"
+
+
+templates.env.filters["ver"] = static_with_version
